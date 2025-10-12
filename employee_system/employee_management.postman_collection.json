@@ -1,0 +1,308 @@
+{
+	"info": {
+		"_postman_id": "7446f993-0003-47ec-940b-65bfe3e248fb",
+		"name": "employee_management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "41841624"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"hanna\",\r\n  \"password\": \"newpass5678\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/token/"
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"hanna\",\r\n  \"password\": \"pass1234\",\r\n  \"email\": \"hanna@example.com\",\r\n  \"first_name\": \"Hanna\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/auth/register/"
+			},
+			"response": []
+		},
+		{
+			"name": "profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYwMjUzODc0LCJpYXQiOjE3NjAyNTAyNzQsImp0aSI6IjM0ODQxODUxYmI1ODQyNDc4MmZlNTczY2YxYmIyYjRmIiwidXNlcl9pZCI6IjMifQ.5SPoT04BdD9Y1kXqHMM2QMm5fmH2qgZdpBkPp7GM-FE",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1:8000/api/auth/profile/"
+			},
+			"response": []
+		},
+		{
+			"name": "changepassword",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYwMjUzODc0LCJpYXQiOjE3NjAyNTAyNzQsImp0aSI6IjM0ODQxODUxYmI1ODQyNDc4MmZlNTczY2YxYmIyYjRmIiwidXNlcl9pZCI6IjMifQ.5SPoT04BdD9Y1kXqHMM2QMm5fmH2qgZdpBkPp7GM-FE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"old_password\": \"pass1234\",\r\n  \"new_password\": \"newpass5678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/auth/change-password/"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Dynamic Form",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYwMjU1NDc1LCJpYXQiOjE3NjAyNTE4NzUsImp0aSI6IjgxODRlYTZmZGJhOTRlZWNhODNkMTliZWQwZDRkNjk4IiwidXNlcl9pZCI6IjMifQ.Pvyb-j5gmq5zwPV6bFRr96caZHk17CR_2vWbndkGw0g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Employee Info\",\r\n  \"fields\": [\r\n    {\"label\": \"first_name\", \"field_type\": \"text\", \"required\": true, \"order\": 1},\r\n    {\"label\": \"last_name\", \"field_type\": \"text\", \"required\": true, \"order\": 2},\r\n    {\"label\": \"email\", \"field_type\": \"email\", \"required\": false, \"order\": 3},\r\n    {\"label\": \"dob\", \"field_type\": \"date\", \"required\": false, \"order\": 4}\r\n  ]\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/forms/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"forms",
+						""
+					],
+					"query": [
+						{
+							"key": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYwMjUzODc0LCJpYXQiOjE3NjAyNTAyNzQsImp0aSI6IjM0ODQxODUxYmI1ODQyNDc4MmZlNTczY2YxYmIyYjRmIiwidXNlcl9pZCI6IjMifQ.5SPoT04BdD9Y1kXqHMM2QMm5fmH2qgZdpBkPp7GM-FE",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list forms",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYwMjU1NDc1LCJpYXQiOjE3NjAyNTE4NzUsImp0aSI6IjgxODRlYTZmZGJhOTRlZWNhODNkMTliZWQwZDRkNjk4IiwidXNlcl9pZCI6IjMifQ.Pvyb-j5gmq5zwPV6bFRr96caZHk17CR_2vWbndkGw0g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/forms/"
+			},
+			"response": []
+		},
+		{
+			"name": "update form",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYwMjU1NDc1LCJpYXQiOjE3NjAyNTE4NzUsImp0aSI6IjgxODRlYTZmZGJhOTRlZWNhODNkMTliZWQwZDRkNjk4IiwidXNlcl9pZCI6IjMifQ.Pvyb-j5gmq5zwPV6bFRr96caZHk17CR_2vWbndkGw0g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Employee Details Form\",\r\n  \"fields\": [\r\n    {\"label\": \"first_name\", \"field_type\": \"text\", \"required\": true, \"order\": 1},\r\n    {\"label\": \"last_name\", \"field_type\": \"text\", \"required\": true, \"order\": 2},\r\n    {\"label\": \"contact_email\", \"field_type\": \"email\", \"required\": false, \"order\": 3},\r\n    {\"label\": \"dob\", \"field_type\": \"date\", \"required\": true, \"order\": 4},\r\n    {\"label\": \"department\", \"field_type\": \"text\", \"required\": false, \"order\": 5}\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/forms/2/"
+			},
+			"response": []
+		},
+		{
+			"name": "create employee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYwMjU1NDc1LCJpYXQiOjE3NjAyNTE4NzUsImp0aSI6IjgxODRlYTZmZGJhOTRlZWNhODNkMTliZWQwZDRkNjk4IiwidXNlcl9pZCI6IjMifQ.Pvyb-j5gmq5zwPV6bFRr96caZHk17CR_2vWbndkGw0g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"form\": 1,\r\n  \"data\": {\r\n    \"name\": \"Hanna Jasmin\",\r\n    \"age\": \"25\",\r\n    \"Dob\": \"2000-01-01\",\r\n    \"Password\": \"test1234\",\r\n    \"email\":\"hannajasmin063@gmail.com\"\r\n  }\r\n}\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/employees/"
+			},
+			"response": []
+		},
+		{
+			"name": "list employees",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYwMjU1NDc1LCJpYXQiOjE3NjAyNTE4NzUsImp0aSI6IjgxODRlYTZmZGJhOTRlZWNhODNkMTliZWQwZDRkNjk4IiwidXNlcl9pZCI6IjMifQ.Pvyb-j5gmq5zwPV6bFRr96caZHk17CR_2vWbndkGw0g",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1:8000/api/employees/"
+			},
+			"response": []
+		},
+		{
+			"name": "search employee",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYwMjU1NDc1LCJpYXQiOjE3NjAyNTE4NzUsImp0aSI6IjgxODRlYTZmZGJhOTRlZWNhODNkMTliZWQwZDRkNjk4IiwidXNlcl9pZCI6IjMifQ.Pvyb-j5gmq5zwPV6bFRr96caZHk17CR_2vWbndkGw0g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/employees/?field=name & value=Hanna Jasmin\n",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"employees",
+						""
+					],
+					"query": [
+						{
+							"key": "field",
+							"value": "name "
+						},
+						{
+							"key": " value",
+							"value": "Hanna Jasmin\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete emploee",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYwMjU2ODUzLCJpYXQiOjE3NjAyNTMyNTMsImp0aSI6IjlhMDU4Nzc4OWY4NDQzYzc4ZWZlMWU5MDFiMzA0OGE3IiwidXNlcl9pZCI6IjMifQ.-v5FbFsuR60kzq1OQXDdfgMs2LzPi4Z13RkQFpfmMtw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/employees/3/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"employees",
+						"3",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
