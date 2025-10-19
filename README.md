@@ -1,30 +1,32 @@
 # 🧑‍💼 Employee Management System (Machine Test)
 
-A full-stack **Employee Management System** built with **Django REST Framework** and **JWT Authentication**, featuring a **Dynamic Form Builder** for creating custom employee data entry forms.
+A full-stack **Employee Management System** built with **Django REST Framework** and **JWT Authentication**, featuring a **Dynamic Form Builder** and an **HTML-rendered frontend** for creating and managing employee data.
 
 ---
 
 ## 🚀 Project Overview
 
 This project was developed as part of a machine test.  
-It provides a modular backend for managing dynamic forms and employee records, along with a simple frontend interface for building forms and managing employee data.
+It provides a modular **Django backend** for managing dynamic forms and employee records, along with a **frontend interface built using HTML, Bootstrap, and JavaScript (Axios)** for smooth user interaction.
+
+> 💡 The evaluation for this project primarily focuses on HTML rendering and user interface functionality.
 
 ---
 
 ## 🧰 Tech Stack
 
-**Backend:**
-- Python 3.x
-- Django 4.x
-- Django REST Framework (DRF)
-- SimpleJWT for token-based authentication
+### **Backend**
+- Python 3.x  
+- Django 4.x  
+- Django REST Framework (DRF)  
+- SimpleJWT (JSON Web Token Authentication)
 
-**Frontend:**
-- HTML, CSS, Bootstrap
-- JavaScript (Axios for API calls)
+### **Frontend**
+- HTML, CSS, Bootstrap 5  
+- JavaScript (Axios for AJAX requests)
 
-**Database:**
-- SQLite (can easily switch to PostgreSQL/MySQL)
+### **Database**
+- SQLite (easily switchable to PostgreSQL/MySQL)
 
 ---
 
@@ -34,27 +36,30 @@ It provides a modular backend for managing dynamic forms and employee records, a
 - User Registration (`/api/auth/register/`)
 - Login via JWT (`/api/token/`)
 - Token Refresh (`/api/token/refresh/`)
-- Profile Management (`/api/auth/profile/`)
+- View & Edit Profile (`/api/auth/profile/`)
 - Change Password (`/api/auth/change-password/`)
+- HTML pages for Register, Login, and Profile
 
 ### 🧱 Dynamic Form Builder
-- Create forms with custom fields (text, number, date, email, etc.)
-- Add/remove fields dynamically
-- Supports field ordering and required/optional validation
+- Create dynamic forms with field types: **Text**, **Number**, **Email**, **Date**, etc.
+- Add or remove fields dynamically
+- Supports drag & drop reordering
 - Stores form structure in the database
-- Built using AJAX (Axios)
+- Built using **Bootstrap + Axios**
+- Accessible via `/form-builder/`
 
 ### 👩‍💼 Employee Management
-- Create and update employee details using selected dynamic forms
-- List and filter employee records
-- Search by dynamic field labels (e.g., name, department)
-- Delete employees
-- Uses JSONField to store flexible employee data
+- Create and update employees using custom-built forms
+- List all employees with form-based fields displayed dynamically
+- Search and filter employees by field values
+- Delete employee records
+- Fully responsive HTML page with modals and dynamic forms
+- Accessible via `/employees/`
 
-### 🧩 API Development
+### 🧩 REST API Development
 - Full RESTful API with JWT authentication
-- Supports CRUD for Forms and Employees
-- Includes Postman collection for quick testing
+- CRUD operations for Forms and Employees
+- Postman collection included for testing APIs
 
 ---
 
@@ -62,27 +67,31 @@ It provides a modular backend for managing dynamic forms and employee records, a
 
 employee_system/
 │
-├── accounts/ # Handles authentication and profile management
+├── accounts/ # Handles user registration, login, profile, password management
 │
-├── employees/ # Dynamic form and employee CRUD
+├── employees/ # Handles dynamic forms and employee CRUD operations
 │ ├── models.py
 │ ├── serializers.py
 │ ├── views.py
 │ ├── urls.py
 │
-├── templates/ # Frontend templates
+├── templates/ # Frontend templates rendered via Django views
+│ ├── login.html
+│ ├── register.html
+│ ├── profile.html
 │ ├── form_builder.html
 │ ├── employee_list.html
 │
-├── static/ # Static assets
+├── static/ # Static assets (CSS/JS)
 │ ├── js/
-│ ├── form_builder.js
-│ ├── employee.js
+│ │ ├── form_builder.js
+│ │ ├── employee.js
 │
-├── employee_system/ # Project settings and URLs
+├── employee_system/ # Project settings and global URLs
 │
 ├── requirements.txt
 ├── manage.py
+└── README.md
 
 1 .Create Virtual Environment
 python -m venv venv
@@ -110,11 +119,19 @@ python manage.py runserver
 
 6. Access the Application
 
-Admin Panel → http://127.0.0.1:8000/admin/
 
-Register  → http://127.0.0.1:8000/reister/
+🛠️ Admin Panel	http://127.0.0.1:8000/admin/ - Django Admin
 
-Register  → http://127.0.0.1:8000/login/
+🧾 Register	http://127.0.0.1:8000/register/ - Create new user
+
+🔑 Login	http://127.0.0.1:8000/login/ - Login and get JWT
+
+👤 Profile	http://127.0.0.1:8000/profile/ - View or edit user details
+
+⚙️ Form Builder	http://127.0.0.1:8000/form-builder/ - Build custom forms
+
+👩‍💼 Employee Management	http://127.0.0.1:8000/employees/ - Manage employees dynamically
+
 
 
 
