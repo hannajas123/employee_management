@@ -16,6 +16,7 @@ Including another URLconf
 """
 
 from django.contrib import admin
+from django.shortcuts import render
 from django.urls import path, include
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from employees.views import form_builder_view, employee_list_view
@@ -26,6 +27,12 @@ urlpatterns = [
     path('api/', include('employees.urls')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    # Frontend routes
+    path('login/', lambda r: render(r, 'login.html'), name='login'),
+    path('register/', lambda r: render(r, 'register.html'), name='register'),
+    path('profile/', lambda r: render(r, 'profile.html'), name='profile'),
+    path('change-password/', lambda r: render(r, 'change_password.html'), name='change_password'),
+
     path('form-builder/', form_builder_view, name='form_builder'),
     path('employees/', employee_list_view, name='employee_list'),
 ]

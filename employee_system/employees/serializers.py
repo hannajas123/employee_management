@@ -33,11 +33,18 @@ class DynamicFormSerializer(serializers.ModelSerializer):
                 FormField.objects.create(form=instance, **f)
         return instance
 
+
+from rest_framework import serializers
+from .models import Employee
+
 class EmployeeSerializer(serializers.ModelSerializer):
+    # Add a read-only field to show form name
+    form_name = serializers.CharField(source='form.name', read_only=True)
+
     class Meta:
         model = Employee
-        fields = ['id','form','data','created_by','created_at']
-        read_only_fields = ('created_by','created_at')
+        fields = ['id', 'form', 'form_name', 'data', 'created_by', 'created_at']
+        read_only_fields = ('created_by', 'created_at')
 
     def validate(self, attrs):
         form = attrs.get('form')
