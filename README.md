@@ -112,7 +112,9 @@ python manage.py runserver
 
 Admin Panel → http://127.0.0.1:8000/admin/
 
-Form Builder → http://127.0.0.1:8000/form-builder/
+Register  → http://127.0.0.1:8000/reister/
 
-Employee List → http://127.0.0.1:8000/employees/
+Register  → http://127.0.0.1:8000/login/
+
+
 
